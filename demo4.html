@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Demo</title>
+  </head>
+  <body>
+    <h2>Personal Details</h2>
+    <form>
+      <div>
+        <label for="personalName">Name: </label>
+        <input
+          type="text"
+          id="personalName"
+          placeholder="Enter Name"
+          name="pName"
+        />
+      </div>
+      <div>
+        <label for="pAge">Age: </label>
+        <input type="number" id="pAge" placeholder="Enter Age" name="age" />
+      </div>
+      <div>
+        Gender:
+        <input type="radio" id="pMale" name="gender" value="male" /><label
+          for="pMale"
+          >Male</label
+        >
+        <input type="radio" id="pFemale" name="gender" value="female" /><label
+          for="pFemale"
+          >Female</label
+        >
+      </div>
+      <div>
+        <label for="pEmail">Email: </label>
+        <input
+          type="email"
+          id="pEmail"
+          name="email"
+          placeholder="Enter email"
+        />
+      </div>
+      <div>
+        <label for="pAddress">Address: </label>
+        <textarea
+          id="pAddress"
+          name="address"
+          placeholder="Enter Address"
+        ></textarea>
+      </div>
+      <div>
+        <label for="pCountry">Country: </label>
+        <select id="pCountry" name="country">
+          <option value="IND">India</option>
+          <option value="NPL">Nepal</option>
+          <option value="SNG">Singapore</option>
+        </select>
+      </div>
+      <div>
+        Hobbies:
+        <input
+          type="checkbox"
+          id="pPainting"
+          name="hobbies"
+          value="painting"
+        /><label for="pPainting">Painting</label>
+        <input
+          type="checkbox"
+          id="pGardening"
+          name="hobbies"
+          value="gardening"
+        /><label for="pGardening">Gardening</label>
+        <input
+          type="checkbox"
+          id="pDancing"
+          name="hobbies"
+          value="dancing"
+        /><label for="pDancing">Dancing</label>
+      </div>
+      <div>
+        <button type="submit">Register</button>
+        <button type="reset">Clear</button>
+      </div>
+    </form>
+  </body>
+</html>
