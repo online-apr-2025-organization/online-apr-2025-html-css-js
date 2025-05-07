@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flex Demo</title>
+    <style>
+      .flex-container {
+        background-color: aquamarine;
+        /* width: 200px; */
+        height: 200px;
+        display: flex;
+        /* flex-direction: row;
+        flex-wrap: wrap; */
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      .flex-item {
+        text-align: center;
+        background-color: bisque;
+        color: maroon;
+        border: solid 2px maroon;
+        margin: 5px;
+        padding: 3px;
+        width: 300px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <!-- <div class="flex-item" style="flex-shrink: 2">A</div>
+      <div class="flex-item" style="flex-shrink: 1">B</div>
+      <div class="flex-item" style="flex-shrink: 6">C</div> -->
+      <!-- <div class="flex-item" style="flex-grow: 2">A</div>
+      <div class="flex-item" style="flex-grow: 1">B</div>
+      <div class="flex-item" style="flex-grow: 6">C</div> -->
+      <div class="flex-item" style="order: 2; align-self: center">A</div>
+      <div class="flex-item" style="order: 3; align-self: flex-end">B</div>
+      <div class="flex-item" style="order: 1; align-self: flex-start;">C</div>
+      <!-- <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div>
+      <div class="flex-item">A</div>
+      <div class="flex-item">B</div>
+      <div class="flex-item">C</div> -->
+    </div>
+  </body>
+</html>

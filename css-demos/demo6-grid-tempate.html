@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grid Template Demo</title>
+  </head>
+  <style>
+    body {
+      margin: 0px;
+    }
+    .grid-container {
+      background-color: skyblue;
+      padding: 4px;
+      display: grid;
+      grid-gap: 4px;
+      grid-template:
+        "head head"
+        "navigate navigate"
+        "section side"
+        "art side"
+        "foot foot";
+      grid-template-rows: 1fr 1fr 4fr 4fr 1fr;
+      grid-template-columns: 8fr 3fr;
+      height: 100vh;
+    }
+    .grid-item {
+      background-color: cornflowerblue;
+    }
+  </style>
+  <body>
+    <div class="grid-container">
+      <header class="grid-item" style="grid-area: head">HEADER</header>
+      <nav class="grid-item" style="grid-area: navigate">NAV</nav>
+      <article class="grid-item" style="grid-area: art">ARTICLE</article>
+      <section class="grid-item" style="grid-area: section">SECTION</section>
+      <aside class="grid-item" style="grid-area: side">ASIDE</aside>
+      <footer class="grid-item" style="grid-area: foot">FOOTER</footer>
+    </div>
+  </body>
+</html>
