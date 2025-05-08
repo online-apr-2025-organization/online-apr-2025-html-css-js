@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Copy Text Demo</title>
+    <style>
+      div {
+        text-align: center;
+      }
+      h2 {
+        color: brown;
+        background-color: antiquewhite;
+      }
+      td {
+        border: solid 2px darkgreen;
+      }
+      #btn1 {
+        border: double 3px maroon;
+        border-radius: 7px;
+        background-color: lightpink;
+        color: maroon;
+      }
+      #btn2 {
+        border: double 3px darkgoldenrod;
+        border-radius: 7px;
+        background-color: lightyellow;
+        color: darkgoldenrod;
+      }
+    </style>
+    <script>
+      //third syntax
+      let copyText = () => {
+        let data = document.getElementById("text1").value;
+        document.getElementById("text2").value = data;
+      };
+
+      function clearText() {
+        document.getElementById("text1").value = "";
+        document.getElementById("text2").value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h2>JS demo to access text box value</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td><input type="text" id="text1" placeholder="Enter Text" /></td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" onclick="copyText()" id="btn1">COPY</button>
+              <button type="button" onclick="clearText()" id="btn2">
+                CLEAR
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" id="text2" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Simple Calculator Demo</title>
+    <style>
+      .container {
+        border: solid 5px black;
+        border-radius: 10px;
+        text-align: center;
+        background-color: lightslategrey;
+        margin: 10px 150px;
+      }
+      .text {
+        border: double 5px black;
+        border-radius: 10px;
+        width: 30px;
+      }
+      .data {
+        background-color: black;
+        border-radius: 3px;
+        color: white;
+      }
+      .data1 {
+        margin: 10px;
+      }
+      #errMsg {
+        color: red;
+        font-size: 8px;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      let chosenOptr = "+";
+      function showOperator(optr) {
+        chosenOptr = optr;
+        document.getElementById("opt").innerHTML = optr;
+      }
+
+      function showResult() {
+        let num1 = document.getElementById("text1").value;
+        let num2 = document.getElementById("text2").value;
+        if (num1 == "" || num2 == "") {
+          document.getElementById("errMsg").innerHTML =
+            "Both operands are mandatory!";
+        } else {
+          document.getElementById("errMsg").innerHTML = "";
+          let result = 0;
+          switch (chosenOptr) {
+            case "+":
+              result = +num1 + +num2;
+              break;
+            case "-":
+              result = num1 - num2;
+              break;
+            case "/":
+              result = num1 / num2;
+              break;
+            case "*":
+              result = num1 * num2;
+              break;
+          }
+          document.getElementById("result").innerHTML = result;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>SIMPLE CALCULATOR</h2>
+      <span id="errMsg"></span>
+      <div>
+        <input type="text" id="text1" class="text" />
+        <span id="opt" class="data">+</span>
+        <input type="text" id="text2" class="text" />
+        <span> = </span>
+        <span id="result" class="data">0</span>
+      </div>
+      <div class="data1">
+        <button type="button" class="data" onclick="showOperator('+')">
+          +
+        </button>
+        <button type="button" class="data" onclick="showOperator('-')">
+          -
+        </button>
+        <button type="button" class="data" onclick="showOperator('/')">
+          /
+        </button>
+        <button type="button" class="data" onclick="showOperator('*')">
+          *
+        </button>
+        <button type="button" class="data" onclick="showResult()">=</button>
+      </div>
+    </div>
+  </body>
+</html>

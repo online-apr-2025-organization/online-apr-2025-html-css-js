@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Js Array Demo</title>
+    <style>
+      .container {
+        border: dashed 5px maroon;
+        border-radius: 15px;
+      }
+      .btn {
+        background-color: cornflowerblue;
+        border-radius: 5px;
+      }
+      .head {
+        color: cornflowerblue;
+      }
+    </style>
+    <script>
+      let allFruits = ["Apple", "Banana", "Orange", "Grapes"];
+      for (let i = 0; i < allFruits.length; i++) {
+        console.log(allFruits[i]);
+      }
+      console.log("------------");
+      for (let eachFruit of allFruits) {
+        console.log(eachFruit);
+      }
+      console.log("------------");
+      for (let eachIndex in allFruits) {
+        console.log(eachIndex);
+      }
+      console.log("------------");
+      allFruits.forEach((eachFruit) => console.log(eachFruit));
+
+      function displayFruits() {
+        let content = "<ul>";
+        allFruits.forEach(
+          (eachFruit) => (content += "<li>" + eachFruit + "</li>")
+        );
+        content += "</ul>";
+
+        document.getElementById("data").innerHTML = content;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="head">Demo to display array elements</h2>
+      <button type="button" class="btn" onclick="displayFruits()">
+        Display Fruits
+      </button>
+      <div id="data"></div>
+    </div>
+  </body>
+</html>

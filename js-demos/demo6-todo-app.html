@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo App</title>
+    <style>
+      .container {
+        border: solid 5px lightpink;
+        margin: 100px;
+        background-color: palevioletred;
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .head {
+        color: purple;
+      }
+      li {
+        border: solid 2px lightblue;
+        border-radius: 5px;
+        background-color: rgb(116, 154, 225);
+        color: navy;
+        width: 200px;
+        margin: 2px;
+      }
+      input {
+        border: solid 2px yellow;
+        border-radius: 5px;
+      }
+      button {
+        background-color: yellow;
+        border: solid 2px yellow;
+        border-radius: 5px;
+      }
+    </style>
+    <script>
+      let allTodos = ["Call Friend", "Laundry", "Grocery"];
+      function displayTodo() {
+        let content = "<ul>";
+        allTodos.forEach(
+          (eachTodo) => (content += "<li>" + eachTodo + "</li>")
+        );
+        content += "</ul>";
+        document.getElementById("data").innerHTML = content;
+      }
+      function addTodo() {
+        let textValue = document.getElementById("text").value;
+        allTodos.push(textValue);
+        document.getElementById("text").value = "";
+        displayTodo();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="head">Todo APP</h2>
+      <div>
+        <input type="text" id="text" placeholder="Enter Task" />
+        <button type="button" onclick="addTodo()">ADD</button>
+      </div>
+      <div id="data"></div>
+    </div>
+    <script>
+      displayTodo();
+    </script>
+  </body>
+</html>

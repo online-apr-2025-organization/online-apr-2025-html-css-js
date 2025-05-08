@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Function demo</title>
+    <script>
+      // we have 3 syntaxes for JS function
+      //var toggleFlag = true;
+      let toggleFlag = true;
+      // first syntax
+      function display() {
+        document.getElementById("data").innerHTML =
+          "Text display on button click";
+      }
+      //second syntax
+      let toggleDisplay = function () {
+        if (toggleFlag) {
+          document.getElementById("data1").innerHTML =
+            "Text toggled on button click";
+        } else {
+          document.getElementById("data1").innerHTML = "";
+        }
+        toggleFlag = !toggleFlag;
+      };
+    </script>
+  </head>
+  <body>
+    <h1>JS Demo on JS function execution when button is clicked</h1>
+    <button type="button" onclick="display()">Click to display text</button>
+    <h3 id="data"></h3>
+    <button type="button" onclick="toggleDisplay()">
+      Click to toggle text
+    </button>
+    <h3 id="data1"></h3>
+  </body>
+</html>
