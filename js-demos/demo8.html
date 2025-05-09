@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Array of Objects Demo</title>
+  </head>
+  <style>
+    td {
+      border-bottom: solid 1px grey;
+    }
+    table {
+      border: solid 2px black;
+      border-radius: 10px;
+    }
+    thead {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <script>
+    let allFruits = [
+      {
+        fruitId: 201,
+        fruitName: "Orange",
+        fruitEmoji: "🍊",
+      },
+      {
+        fruitId: 202,
+        fruitName: "Grapes",
+        fruitEmoji: "🍇",
+      },
+      {
+        fruitId: 203,
+        fruitName: "Apple",
+        fruitEmoji: "🍊",
+      },
+      {
+        fruitId: 204,
+        fruitName: "Banana",
+        fruitEmoji: "🍌",
+      },
+    ];
+    function displayFruits() {
+      let content = `<table>
+                        <thead>
+                         <tr>
+                           <th>ID</th>
+                           <th>NAME</th>
+                           <th>EMOJI</th>
+                         </tr>
+                        </thead>
+                        <tbody>`;
+      allFruits.forEach(
+        (eachFruit) =>
+          (content += `<tr>
+                            <td>${eachFruit.fruitId}</td>
+                            <td>${eachFruit.fruitName}</td>
+                            <td>${eachFruit.fruitEmoji}</td>
+                       </tr>`)
+      );
+      content += `</tbody></table>`;
+      document.getElementById("para").innerHTML = content;
+    }
+  </script>
+  <body>
+    <h2>Demo for displaying array of objects</h2>
+    <p id="para"></p>
+    <script>
+      displayFruits();
+    </script>
+  </body>
+</html>

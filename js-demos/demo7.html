@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Object Literal Demo</title>
+  </head>
+  <body>
+    <h2>JS Demo for Object Literals</h2>
+    <p id="para"></p>
+    <script>
+      let mark = 50;
+      let personDetails = {
+        firstName: "Will",
+        lastName: "Smith",
+        fullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      };
+      document.getElementById("para").innerHTML = `First Name is : ${
+        personDetails.firstName
+      }. Last Name is : ${
+        personDetails.lastName
+      }. Full Name is : ${personDetails.fullName()}.`;
+    </script>
+  </body>
+</html>

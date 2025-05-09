@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spread/Rest Operator Demo</title>
+  </head>
+
+  <body>
+    <h2>Demo for spread/rest operator</h2>
+    <script>
+      // spread operator for arrays
+      let oddNumbers = [1, 3, 5, 7, 9];
+      let evenNumbers = [2, 4, 6, 8, 10];
+      let allNumbers = [...evenNumbers, 10, 20, 30, ...oddNumbers];
+      for (let num of allNumbers) {
+        console.log(num);
+      }
+      // try spread operator for objects as well
+
+      // rest operator(...) for destructuring arrays
+      let num1 = oddNumbers[0];
+      let num2 = oddNumbers[1];
+      let num3 = oddNumbers[2];
+      let num4 = oddNumbers[3];
+      let num5 = oddNumbers[4];
+      console.log(num1, num2, num3, num4, num5);
+
+      let [n1, n2, n3, n4, n5] = oddNumbers; // array destructuring
+      console.log(n1, n2, n3, n4, n5);
+
+      // try rest operator(...) for destructuring object
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ECOM</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <style>
+      body {
+        margin: 0px;
+      }
+      .grid-container {
+        background-color: bisque;
+        height: 100vh;
+        display: grid;
+        gap: 2px;
+
+        grid-template:
+          "head head"
+          "mn side"
+          "foot foot";
+        grid-template-columns: 8fr 2fr;
+        grid-template-rows: 1fr 8fr 2fr;
+      }
+      header {
+        grid-area: head;
+        background-color: burlywood;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        font-size: 20px;
+        color: chocolate;
+      }
+      main {
+        grid-area: mn;
+        background-color: chocolate;
+      }
+      aside {
+        grid-area: side;
+        background-color: chocolate;
+      }
+      footer {
+        grid-area: foot;
+      }
+      h3 {
+        color: chocolate;
+        background-color: bisque;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 20px;
+        text-align: center;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      #flex-item {
+        background-color: bisque;
+        border: solid 2px chocolate;
+        border-radius: 10px;
+        margin-top: 5px;
+        width: 200px;
+        height: 400px;
+        text-align: center;
+      }
+      img {
+        width: 180px;
+        height: 150px;
+        border-radius: 10px;
+      }
+      #cart-btn {
+        background-color: chocolate;
+        color: wheat;
+        border: solid 1px chocolate;
+        border-radius: 5px;
+      }
+      table {
+        border: solid 2px bisque;
+        border-radius: 5px;
+        margin-left: 5px;
+      }
+      thead {
+        background-color: chocolate;
+        color: bisque;
+        border-radius: 5px;
+      }
+      td {
+        background-color: bisque;
+        color: chocolate;
+        border: solid 1px chocolate;
+        border-radius: 5px;
+      }
+      #del {
+        background-color: bisque;
+        color: chocolate;
+        border: solid 1px chocolate;
+        border-radius: 5px;
+      }
+    </style>
+    <script>
+      let cartProducts = [];
+      let allProducts = [
+        {
+          prodId: 101,
+          prodName: "Laptop",
+          prodDescription: "A new Laptop with all the features",
+          prodPrice: 50000,
+          prodImageUrl:
+            "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          prodId: 102,
+          prodName: "Tablet",
+          prodDescription: "A new Tablet with all the features",
+          prodPrice: 15000,
+          prodImageUrl:
+            "https://images.unsplash.com/photo-1561154464-82e9adf32764?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          prodId: 103,
+          prodName: "Smart Watch",
+          prodDescription: "A new Smart Watch with all the features",
+          prodPrice: 20000,
+          prodImageUrl:
+            "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=3376&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          prodId: 104,
+          prodName: "Mobile",
+          prodDescription: "A new Mobile with all the features",
+          prodPrice: 70000,
+          prodImageUrl:
+            "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          prodId: 105,
+          prodName: "PC",
+          prodDescription: "A new PC with all the features",
+          prodPrice: 50000,
+          prodImageUrl:
+            "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ];
+      function displayProducts() {
+        let content = '<div class="flex-container">';
+        allProducts.forEach((eachProd) => {
+          content += `
+                        <div id="flex-item">
+                            <div><img src="${eachProd.prodImageUrl}"></div>
+                            <h3>Product ID : ${eachProd.prodId} </h3>
+                            <p>Product Name: ${eachProd.prodName} </p>
+                            <p>Product Description: ${eachProd.prodDescription} </p>
+                            <p>Product Price: ${eachProd.prodPrice} </p>
+                            <div><button type="button" id="cart-btn" onclick="addToCart(${eachProd.prodId})">Add To Cart</button></div>
+                        </div>
+                        `;
+        });
+        content += `</div>`;
+        document.getElementById("data").innerHTML = content;
+      }
+
+      function addToCart(prodId) {
+        for (let eachProd of allProducts) {
+          if (eachProd.prodId == prodId) {
+            cartProducts.push(eachProd);
+            break;
+          }
+        }
+        displayCart();
+      }
+
+      function displayCart() {
+        let totalPrice = 0;
+        let content = `<table>
+                        <thead>
+                            <tr>
+                                <th>SNO</th>
+                                <th>NAME</th>
+                                <th>PRICE</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                       <tbody>`;
+        cartProducts.forEach((cartItem, index) => {
+          content += `<tr>
+                            <td>${index + 1}</td>
+                            <td>${cartItem.prodName}</td>
+                            <td>${cartItem.prodPrice}</td>
+                            <td><button type="button" id="del" onclick="deleteProduct(${
+                              cartItem.prodId
+                            })"><span class="material-symbols-outlined">
+                                    delete
+                                </span></button>
+                            </td>
+                     </tr>`;
+          totalPrice += cartItem.prodPrice;
+        });
+        content += `<tbody></table>`;
+
+        document.getElementById("cart").innerHTML = content;
+        document.getElementById("tot").innerHTML =
+          "<h3>TOTAL PRICE : " + totalPrice + "</h3>";
+      }
+
+      function deleteProduct(prodId) {
+        for (let i = 0; i < cartProducts.length; i++) {
+          if (cartProducts[i].prodId == prodId) {
+            cartProducts.splice(i, 1);
+            break;
+          }
+        }
+        displayCart();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="grid-container">
+      <header class="grid-item">Welcome to ECOM</header>
+      <main class="grid-item" id="data"></main>
+      <aside class="grid-item">
+        <h3>MY CART</h3>
+        <div id="cart"></div>
+        <div id="tot"></div>
+      </aside>
+      <footer class="grid-item">@Copyright 2025</footer>
+    </div>
+    <script>
+      displayProducts();
+    </script>
+  </body>
+</html>

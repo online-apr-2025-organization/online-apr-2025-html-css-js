@@ -30,28 +30,52 @@
         border: solid 2px yellow;
         border-radius: 5px;
       }
+      p {
+        color: red;
+        font-size: 8px;
+        font-weight: bold;
+      }
     </style>
     <script>
       let allTodos = ["Call Friend", "Laundry", "Grocery"];
       function displayTodo() {
         let content = "<ul>";
         allTodos.forEach(
-          (eachTodo) => (content += "<li>" + eachTodo + "</li>")
+          (eachTodo) =>
+            (content += `<li onclick='deleteTodo("${eachTodo}")'>${eachTodo}</li>`)
         );
         content += "</ul>";
         document.getElementById("data").innerHTML = content;
       }
+
+      function deleteTodo(todo) {
+        for (let i = 0; i < allTodos.length; i++) {
+          if (allTodos[i] == todo) {
+            allTodos.splice(i, 1);
+            break;
+          }
+        }
+        displayTodo();
+      }
+
       function addTodo() {
         let textValue = document.getElementById("text").value;
-        allTodos.push(textValue);
-        document.getElementById("text").value = "";
-        displayTodo();
+        if (textValue == "") {
+          document.getElementById("errMsg").innerHTML =
+            "<p>Please enter the Task before clicking on ADD button!";
+        } else {
+          document.getElementById("errMsg").innerHTML = "";
+          allTodos.push(textValue);
+          document.getElementById("text").value = "";
+          displayTodo();
+        }
       }
     </script>
   </head>
   <body>
     <div class="container">
       <h2 class="head">Todo APP</h2>
+      <div id="errMsg"></div>
       <div>
         <input type="text" id="text" placeholder="Enter Task" />
         <button type="button" onclick="addTodo()">ADD</button>
